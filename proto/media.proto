@@ -125,15 +125,15 @@ message Ad {
 
     // Represents one of the four ways of making creative markup available.
     oneof creative {
-			// General display markup (e.g., HTML, AMPHTML) if not using a structured alternative
-			// (e.g., "banner", "native"). 
-			string adm = 20;
+      // General display markup (e.g., HTML, AMPHTML) if not using a structured alternative
+      // (e.g., "banner", "native"). 
+      string adm = 20;
 
-			// Optional means of retrieving display markup by reference; a URL that can return HTML,
-			// AMPHTML, or a collection native "Asset" object and their subordinates). If this ad is matched
-			// to a Placement specification, the "Placement.ref" attribute indicates if this markup
-			// retrieval option is supported. 
-			string curl = 21;
+      // Optional means of retrieving display markup by reference; a URL that can return HTML,
+      // AMPHTML, or a collection native "Asset" object and their subordinates). If this ad is matched
+      // to a Placement specification, the "Placement.ref" attribute indicates if this markup
+      // retrieval option is supported. 
+      string curl = 21;
 
       // Structured banner image object, recommended for simple banner creatives.
       // Refer to Object: Banner.
@@ -281,15 +281,15 @@ message Ad {
          * be either included or referenced.
          */
         message VideoAsset {
-					// Required. Represents one of the two ways of making video markup available.
-					oneof creative {
-						// Video markup (e.g., VAST document) for the asset.  
-						string adm = 1;
+          // Required. Represents one of the two ways of making video markup available.
+          oneof creative {
+            // Video markup (e.g., VAST document) for the asset.  
+            string adm = 1;
 
             // A URL that returns the video markup (e.g., VAST document) for the asset. If this ad 
             // is matched to a placement specification, the "Placement.ref" attribute indicates if 
             // this markup retrieval option is supported. 
-						string curl = 2;
+            string curl = 2;
           }
 
           // Optional vendor-specific extensions.
@@ -370,14 +370,14 @@ message Ad {
     repeated int32 types = 3;
 
     // Video markup (e.g., VAST).
-		oneof creative {
-			// Video markup (e.g., VAST document) for the asset.  
-			string adm = 5;
+    oneof creative {
+      // Video markup (e.g., VAST document) for the asset.  
+      string adm = 5;
 
       // A URL that returns the video markup (e.g., VAST document) for the asset. If this ad 
       // is matched to a placement specification, the "Placement.ref" attribute indicates if 
       // this markup retrieval option is supported. 
-			string curl = 6;
+      string curl = 6;
     }
 
     // Optional vendor-specific extensions.
@@ -401,14 +401,14 @@ message Ad {
     repeated int32 types = 3;
 
     // Video markup (e.g., DAAST).
-		oneof creative {
-			// Video markup (e.g., DAAST document) for the asset.  
-			string adm = 5;
+    oneof creative {
+      // Video markup (e.g., DAAST document) for the asset.  
+      string adm = 5;
 
       // A URL that returns the video markup (e.g., DAAST document) for the asset. If this ad 
       // is matched to a placement specification, the "Placement.ref" attribute indicates if 
       // this markup retrieval option is supported. 
-			string curl = 6;
+      string curl = 6;
     }
 
     // Optional vendor-specific extensions.
