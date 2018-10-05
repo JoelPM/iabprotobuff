@@ -163,15 +163,15 @@ message Placement {
     // Refer to List: Size Units.
     int32 unit = 14;
 
-		// Array of objects that govern the attributes (e.g., sizes) of a banner display placement.
-		// Note that including both "displayfmt" and "nativefmt" is not recommended.
-		// Refer to Object: DisplayFormat.
-		repeated DisplayFormat displayfmts = 15;
+    // Array of objects that govern the attributes (e.g., sizes) of a banner display placement.
+    // Note that including both "displayfmt" and "nativefmt" is not recommended.
+    // Refer to Object: DisplayFormat.
+    repeated DisplayFormat displayfmts = 15;
 
-		// This object specified the required and permitted assets and attributes of a native display
-		// placement. Note that including both "displayfmt" and "nativefmt" is not recommended.
-		// Refer to Object: NativeFormat. 
-		NativeFormat nativefmt = 16;
+    // This object specified the required and permitted assets and attributes of a native display
+    // placement. Note that including both "displayfmt" and "nativefmt" is not recommended.
+    // Refer to Object: NativeFormat. 
+    NativeFormat nativefmt = 16;
 
     // Array of supported ad tracking events.
     // Refer to Object: EventSpec
