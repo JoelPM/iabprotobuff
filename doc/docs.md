@@ -4,20 +4,61 @@
 ## Table of Contents
 
 - [context.proto](#context.proto)
-    - [Content](#context.Content)
-    - [Data](#context.Data)
-    - [Device](#context.Device)
-    - [DistributionChannel](#context.DistributionChannel)
-    - [DistributionChannel.App](#context.DistributionChannel.App)
-    - [DistributionChannel.DOOH](#context.DistributionChannel.DOOH)
-    - [DistributionChannel.Site](#context.DistributionChannel.Site)
-    - [Geo](#context.Geo)
-    - [Producer](#context.Producer)
-    - [Publisher](#context.Publisher)
-    - [Regs](#context.Regs)
-    - [Segment](#context.Segment)
-    - [User](#context.User)
+    - [Content](#adcom.context.Content)
+    - [Data](#adcom.context.Data)
+    - [Device](#adcom.context.Device)
+    - [DistributionChannel](#adcom.context.DistributionChannel)
+    - [DistributionChannel.App](#adcom.context.DistributionChannel.App)
+    - [DistributionChannel.DOOH](#adcom.context.DistributionChannel.DOOH)
+    - [DistributionChannel.Site](#adcom.context.DistributionChannel.Site)
+    - [Geo](#adcom.context.Geo)
+    - [Producer](#adcom.context.Producer)
+    - [Publisher](#adcom.context.Publisher)
+    - [Regs](#adcom.context.Regs)
+    - [Segment](#adcom.context.Segment)
+    - [User](#adcom.context.User)
   
+  
+  
+  
+
+- [enum.proto](#enum.proto)
+    - [Creative](#adcom.Creative)
+  
+    - [APIFramework](#adcom.APIFramework)
+    - [AudioFeedType](#adcom.AudioFeedType)
+    - [AuditStatusCode](#adcom.AuditStatusCode)
+    - [CategoryTaxonomy](#adcom.CategoryTaxonomy)
+    - [ClickType](#adcom.ClickType)
+    - [CompanionType](#adcom.CompanionType)
+    - [ConnectionType](#adcom.ConnectionType)
+    - [ContentContext](#adcom.ContentContext)
+    - [Creative.Attribute](#adcom.Creative.Attribute)
+    - [Creative.AudioType](#adcom.Creative.AudioType)
+    - [Creative.DisplayType](#adcom.Creative.DisplayType)
+    - [Creative.VideoType](#adcom.Creative.VideoType)
+    - [DOOHVenueType](#adcom.DOOHVenueType)
+    - [DeliveryMethod](#adcom.DeliveryMethod)
+    - [DeviceType](#adcom.DeviceType)
+    - [DisplayContextType](#adcom.DisplayContextType)
+    - [DisplayPlacementType](#adcom.DisplayPlacementType)
+    - [EventTrackingMethod](#adcom.EventTrackingMethod)
+    - [EventType](#adcom.EventType)
+    - [ExpandableDirection](#adcom.ExpandableDirection)
+    - [LinearityMode](#adcom.LinearityMode)
+    - [LocationService](#adcom.LocationService)
+    - [LocationType](#adcom.LocationType)
+    - [MediaRating](#adcom.MediaRating)
+    - [NativeDataAssetType](#adcom.NativeDataAssetType)
+    - [NativeImageAssetType](#adcom.NativeImageAssetType)
+    - [OperatingSystem](#adcom.OperatingSystem)
+    - [PlacementPosition](#adcom.PlacementPosition)
+    - [PlaybackCessationMode](#adcom.PlaybackCessationMode)
+    - [PlaybackMethod](#adcom.PlaybackMethod)
+    - [ProductionQuality](#adcom.ProductionQuality)
+    - [SizeUnit](#adcom.SizeUnit)
+    - [VideoPlacementSubtype](#adcom.VideoPlacementSubtype)
+    - [VolumeNormalizationMode](#adcom.VolumeNormalizationMode)
   
   
   
@@ -59,7 +100,7 @@ interacting, the channel&#39;s publisher, its content, and any regulations that 
 (e.g., COPPA, GDPR).
 
 
-<a name="context.Content"/>
+<a name="adcom.context.Content"/>
 
 ### Content
 This object describes the content in which an impression can appear, which may be syndicated or 
@@ -93,8 +134,8 @@ a video impression embedded in an iframe on an unknown web property or device).
 | len | [int32](#int32) |  | Length of content in seconds; typically for video or audio. |
 | lang | [string](#string) |  | Content language using ISO-639-1-alpha-2. |
 | embed | [bool](#bool) |  | Indicator of whether or not the content is embedded off-site from the site or app described in those objects (e.g., an embedded video player), where false = no, true = yes. |
-| producer | [Producer](#context.Producer) |  | Details about the content producer. Refer to Object: Producer. |
-| data | [Data](#context.Data) | repeated | Additional user data. Each &#34;Data&#34; object represents a different data source. Refer to Object: Data. |
+| producer | [Producer](#adcom.context.Producer) |  | Details about the content producer. Refer to Object: Producer. |
+| data | [Data](#adcom.context.Data) | repeated | Additional user data. Each &#34;Data&#34; object represents a different data source. Refer to Object: Data. |
 | ext | [google.protobuf.Any](#google.protobuf.Any) |  | Optional vendor-specific extensions. |
 
 
@@ -102,7 +143,7 @@ a video impression embedded in an iframe on an unknown web property or device).
 
 
 
-<a name="context.Data"/>
+<a name="adcom.context.Data"/>
 
 ### Data
 The data and segment objects together allow additional data about the related object (e.g., 
@@ -115,7 +156,7 @@ should be communicated a priori among the parties.
 | ----- | ---- | ----- | ----------- |
 | id | [string](#string) |  | Vendor-specific ID for the data provider. |
 | name | [string](#string) |  | Vendor-specific displayable name for the data provider. |
-| segment | [Segment](#context.Segment) | repeated | Array of &#34;Segment&#34; objects that contain the actual data values. Refer to Object: Segment. |
+| segment | [Segment](#adcom.context.Segment) | repeated | Array of &#34;Segment&#34; objects that contain the actual data values. Refer to Object: Segment. |
 | ext | [google.protobuf.Any](#google.protobuf.Any) |  | Optional vendor-specific extensions. |
 
 
@@ -123,7 +164,7 @@ should be communicated a priori among the parties.
 
 
 
-<a name="context.Device"/>
+<a name="adcom.context.Device"/>
 
 ### Device
 This object provides information pertaining to the device through which the user is interacting.
@@ -157,7 +198,7 @@ refer to a mobile handset, a desktop computer, set top box, or other digital dev
 | mccmncsim | [string](#string) |  | MCC and MNC of the SIM card using the same format as &#34;mccmnc&#34;. When both values are available, a difference between them reveals that a user is roaming. |
 | contype | [int32](#int32) |  | Network connection type. Refer to List: Connection Types. |
 | feofetch | [bool](#bool) |  | Indicates if the geolocation API will be available to Javascript code running in display ad, where false = no, true = yes. |
-| geo | [Geo](#context.Geo) |  | Location of the device (i.e., typically the user&#39;s current location). Refer to Object: Geo. |
+| geo | [Geo](#adcom.context.Geo) |  | Location of the device (i.e., typically the user&#39;s current location). Refer to Object: Geo. |
 | ext | [google.protobuf.Any](#google.protobuf.Any) |  | Optional vendor-specific extensions. |
 
 
@@ -165,7 +206,7 @@ refer to a mobile handset, a desktop computer, set top box, or other digital dev
 
 
 
-<a name="context.DistributionChannel"/>
+<a name="adcom.context.DistributionChannel"/>
 
 ### DistributionChannel
 A distribution channel is an abstraction of the various types of entities or channels through 
@@ -179,18 +220,18 @@ each of its derived classes.
 | ----- | ---- | ----- | ----------- |
 | id | [string](#string) |  | Vendor specific unique identifier of the distribution channel. Recommended. |
 | name | [string](#string) |  | Displayable name of the distribution channel. |
-| pub | [Publisher](#context.Publisher) |  | Details about the publisher of the distribution channel. Refer to Object: Publisher. |
-| content | [Content](#context.Content) |  | Details about the content within the distribution channel. Refer to Object: Content. |
-| site | [DistributionChannel.Site](#context.DistributionChannel.Site) |  |  |
-| app | [DistributionChannel.App](#context.DistributionChannel.App) |  |  |
-| dooh | [DistributionChannel.DOOH](#context.DistributionChannel.DOOH) |  |  |
+| pub | [Publisher](#adcom.context.Publisher) |  | Details about the publisher of the distribution channel. Refer to Object: Publisher. |
+| content | [Content](#adcom.context.Content) |  | Details about the content within the distribution channel. Refer to Object: Content. |
+| site | [DistributionChannel.Site](#adcom.context.DistributionChannel.Site) |  |  |
+| app | [DistributionChannel.App](#adcom.context.DistributionChannel.App) |  |  |
+| dooh | [DistributionChannel.DOOH](#adcom.context.DistributionChannel.DOOH) |  |  |
 
 
 
 
 
 
-<a name="context.DistributionChannel.App"/>
+<a name="adcom.context.DistributionChannel.App"/>
 
 ### DistributionChannel.App
 This object is used to define an ad supported non-browser application, in contrast to a typical
@@ -218,7 +259,7 @@ website.
 
 
 
-<a name="context.DistributionChannel.DOOH"/>
+<a name="adcom.context.DistributionChannel.DOOH"/>
 
 ### DistributionChannel.DOOH
 This object is used to define an ad supported digital out-of-home (DOOH) experience such as a 
@@ -238,7 +279,7 @@ public kiosk or digital billboard.
 
 
 
-<a name="context.DistributionChannel.Site"/>
+<a name="adcom.context.DistributionChannel.Site"/>
 
 ### DistributionChannel.Site
 This object is used to define an ad supported website, in contrast to a non-browser 
@@ -266,7 +307,7 @@ application, for example.
 
 
 
-<a name="context.Geo"/>
+<a name="adcom.context.Geo"/>
 
 ### Geo
 This object encapsulates various methods for specifying a geographic location. When subordinate 
@@ -300,7 +341,7 @@ be passed.
 
 
 
-<a name="context.Producer"/>
+<a name="adcom.context.Producer"/>
 
 ### Producer
 This object defines the producer of the content in which ad will be displayed. This is 
@@ -322,7 +363,7 @@ publishers and thus when the producer and publisher are not necessarily the same
 
 
 
-<a name="context.Publisher"/>
+<a name="adcom.context.Publisher"/>
 
 ### Publisher
 This object describes the publisher of the media in which ads will be displayed.
@@ -342,7 +383,7 @@ This object describes the publisher of the media in which ads will be displayed.
 
 
 
-<a name="context.Regs"/>
+<a name="adcom.context.Regs"/>
 
 ### Regs
 This object contains any known legal, governmental, or industry regulations that are in effect.
@@ -359,7 +400,7 @@ This object contains any known legal, governmental, or industry regulations that
 
 
 
-<a name="context.Segment"/>
+<a name="adcom.context.Segment"/>
 
 ### Segment
 Segment objects are essentially key-value pairs that convey specific units of data. The parent 
@@ -379,7 +420,7 @@ specific IDs should be communicated a priori among the parties.
 
 
 
-<a name="context.User"/>
+<a name="adcom.context.User"/>
 
 ### User
 This object contains information known or derived about the human user of the device (i.e., the 
@@ -396,8 +437,8 @@ reasonably as the basis for frequency capping and retargeting.
 | gender | [string](#string) |  | Gender, where &#34;M&#34; = male, &#34;F&#34; = female, &#34;O&#34; = known to be other (i.e., omitted is unknown). |
 | keywords | [string](#string) | repeated | Array of keywords, interests, or intent. TODO(@joelpm): deviates. |
 | consent | [string](#string) |  | GDPR content string if applicable, complying with the IAB standard Consent String Format in the Transparency and Consent Framework technical specifications. |
-| geo | [Geo](#context.Geo) |  | Location of the user&#39;s home base (i.e., not necessarily their current location). Refer to Object: Geo. |
-| data | [Data](#context.Data) | repeated | Additional user data. Each &#34;Data&#34; object represents a different data source. Refer to Object: Data. |
+| geo | [Geo](#adcom.context.Geo) |  | Location of the user&#39;s home base (i.e., not necessarily their current location). Refer to Object: Geo. |
+| data | [Data](#adcom.context.Data) | repeated | Additional user data. Each &#34;Data&#34; object represents a different data source. Refer to Object: Data. |
 | ext | [google.protobuf.Any](#google.protobuf.Any) |  | Optional vendor-specific extensions. |
 
 
@@ -405,6 +446,691 @@ reasonably as the basis for frequency capping and retargeting.
 
 
  
+
+ 
+
+ 
+
+ 
+
+
+
+<a name="enum.proto"/>
+<p align="right"><a href="#top">Top</a></p>
+
+## enum.proto
+The following enumerations are referenced by attributes in AdCOM objects.
+
+
+<a name="adcom.Creative"/>
+
+### Creative
+
+
+
+
+
+
+ 
+
+
+<a name="adcom.APIFramework"/>
+
+### APIFramework
+The following enum is a list of API frameworks either supported by a placement or required
+by an ad.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| UNSET_APIF | 0 | Equivalent to an unset value. |
+| VPAID_1_0 | 1 | VPAID 1.0 |
+| VAPID_2_0 | 2 | VPAID 2.0 |
+| MRAID_1_0 | 3 | MRAID 1.0 |
+| ORMMA | 4 | ORMMA |
+| MRAID_2_0 | 5 | MRAID 2.0 |
+| MRAID_3_0 | 6 | MRAID 3.0 |
+| OMID_1_0 | 7 | OMID 1.0 |
+
+
+
+<a name="adcom.AudioFeedType"/>
+
+### AudioFeedType
+The following enum defines the types of feeds for audio.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| UNSET_AUDIO_FT | 0 | Equivalent to an unset value. |
+| MUSIC_SERVICE | 1 | Music Service. |
+| FM_AM_BROADCAST | 2 | FM/AM Broadcast. |
+| PODCAST | 3 | Podcast. |
+
+
+
+<a name="adcom.AuditStatusCode"/>
+
+### AuditStatusCode
+The following enum lists the codes used in &#34;Audit&#34; objects to reflect status or workflow state.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| UNSET_ASC | 0 | Equivalent to an unset value. |
+| PENDING_AUDIT | 1 | Pending Audit: An audit has not yet been completed on this ad. A recommendation cannot be made to use this ad, but vendors&#39; policies may override. |
+| PREAPPROVED | 2 | Pre-Approved: An audit has not yet been completed on this ad. Subject to vendors&#39; policies, it can be recommended for use. However, once the audit has been completed, its status will change and it may or may not be approved for continued use. |
+| APPROVED | 3 | Approved: The audit is complete and the ad is approved for use. Note, however, that some attributes (e.g., &#34;adomain&#34;, &#34;cat&#34;, &#34;attr&#34;, etc.) may have been changed in the process by the auditor. |
+| DENIED | 4 | Denied: The audit is complete, but the ad has been found unacceptable in some material aspect and is disapproved for use. |
+| CHANGE_RESUBMIT | 5 | Changed; Resubmission Requested: A version of the ad has been detected in use that is materially different from the version that was previously audited, which may result in rejection during use until the ad is resubmitted for audit and approved. Vendors need to communicate offline as to the criteria that constitutes a material change. |
+
+
+
+<a name="adcom.CategoryTaxonomy"/>
+
+### CategoryTaxonomy
+This enum identiifes the taxonomy in effect when content categories are listed.
+http://www.iab.com/guidelines/taxonomy
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| UNSET_CAT_TAX | 0 | Equivalent to an unset value. |
+| IAB_CNTNT_CAT_TAX_1_0 | 1 | IAB Content Category Taxonomy 1.0 |
+| IAB_CNTNT_CAT_TAX_2_0 | 2 | IAB Content Category Taxonomy 2.0 |
+| IAB_AD_PROD_TAX_1_0 | 3 | IAB Ad Product Taxonomy 1.0 |
+
+
+
+<a name="adcom.ClickType"/>
+
+### ClickType
+The following enum defines the types of creative action (i.e., click) behavior types.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| NON_CLICKABLE | 0 | Non-Clickable |
+| CLICKABLE_UNKNOWN | 1 | Details Unknown |
+| CLICKABLE_EMBEDDED | 2 | Embedded Browser/Webview |
+| CLICKABLE_NATIVE | 3 | Native Browser |
+
+
+
+<a name="adcom.CompanionType"/>
+
+### CompanionType
+The following enum defines the options to indicate markup types allowed for companion ads that
+apply to video and audio ads. This enum is derived from VAST 2.0&#43; and DAAST 1.0&#43; specifications.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| UNSET_COMP_TYPE | 0 | Equivalent to an unset value. |
+| STATIC_RSRC | 1 | Static resource. |
+| HTML_RSRC | 2 | HTML resource. |
+| IFRAME_RSRC | 3 | Iframe resource. |
+
+
+
+<a name="adcom.ConnectionType"/>
+
+### ConnectionType
+The following enum defines the options for the type of device connectivity.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| UNSET_CONN_TYPE | 0 | Equivalent to an unset value. |
+| WIRED | 1 | Wired ethernet connection. |
+| WIFI | 2 | WIFI. |
+| CELL_UNKNOWN | 3 | Cellular Network - unknown generation. |
+| CELL_2G | 4 | Cellular Network - 2g. |
+| CELL_3G | 5 | Cellular Network - 3g. |
+| CELL_4G | 6 | Cellular Network - 4g. |
+| CELL_5G | 7 | Cellular Network - 5g. |
+
+
+
+<a name="adcom.ContentContext"/>
+
+### ContentContext
+The following enum defines the various options for indicating the type of content being used or 
+consumed by the user in which ads may appear. This enum has values derived from the TAG 
+Inventory Quality Guidelines (IQG).
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| UNSET_CON_CON | 0 |  |
+| VIDEO | 1 | Video (i.e., video file or stream such as Internet TV broadcasts). |
+| GAME | 2 | Game (i.e., an interactive software game). |
+| MUSIC | 3 | Music (i.e., audio file or stream such as Internet radio broadcasts). |
+| APPLICATION | 4 | Application (i.e., an interactive software application). |
+| TEXT | 5 | Text (i.e., primarily textual document such as a web page, eBook, or news article). |
+| OTHER | 6 | Other (i.e., none of the other categories applies). |
+| UNKNOWN | 7 | Unknown content context. |
+
+
+
+<a name="adcom.Creative.Attribute"/>
+
+### Creative.Attribute
+The following enum defines a standard list of creative attributes that can describe an actual ad
+or restrictions relative to a given placement.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| UNSET_ATTR | 0 | Equivalent to an unset value. |
+| AUDIO_AUTOPLAY | 1 | Audio Ad (Autoplay). |
+| AUDIO_USER_INIT | 2 | Audio Ad (User Initiated). |
+| EXPANDABLE_AUTO | 3 | Expandable (Automatic). |
+| EXPANDABLE_ONCLICK | 4 | Expandable (User Initiated - Click). |
+| EXPANDABLE_ONROLLOVER | 5 | Expandable (User Initiated - Rollover). |
+| IB_VIDEO_AUTO | 6 | In-Banner Video Ad (Autoplay). |
+| IB_VIDEO_USER_INIT | 7 | In-Banner Video Ad (User Initiated). |
+| POP | 8 | Pop (e.g., Over, Under, or Upon Exit). |
+| PROVOCATIVE | 9 | Provocative or Suggestive Imagery. |
+| ANNOYING | 10 | Shaky, Flashing, Flickery, Extreme Animation, Smileys. |
+| SURVEYS | 11 | Surveys. |
+| TEXT_ONLY | 12 | Text Only |
+| USER_INTERACTIVE | 13 | User Interactive (e.g., Embedded Games). |
+| DIALOG_ALERT | 14 | Windows Dialog or Alert Style. |
+| AUDIO_ON_OFF | 15 | Has Audio On/Off Button. |
+| SKIP_BUTTON | 16 | Ad Provides Skip Button (e.g., VPAID-rendered skip button on pre-roll video). |
+| ADOBE_FLASH | 17 | Adobe Flash. |
+| RESPONSIVE | 18 | Responsive; Sizeless; Fluid (i.e., creatives that dynamically resize to env). |
+
+
+
+<a name="adcom.Creative.AudioType"/>
+
+### Creative.AudioType
+The following enum defines the various subtypes of audio ad creatives.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| UNSET_AT | 0 | Equivalent to an unset value. |
+| DAAST_1_0 | 1 | DAAST 1.0 |
+| DAAST_1_0_WRAP | 2 | DAAST 1.0 Wrapper |
+
+
+
+<a name="adcom.Creative.DisplayType"/>
+
+### Creative.DisplayType
+The following enum defines the various subtypes of display ad creatives.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| UNSET_DT | 0 | Equivalent to an unset value. |
+| HTML | 1 | HTML |
+| AMPHTML | 2 | AMP HTML |
+| IMAGE | 3 | Structured Image object |
+| NATIVE | 4 | Structured Native Object |
+
+
+
+<a name="adcom.Creative.VideoType"/>
+
+### Creative.VideoType
+The following enum defines the various subtypes of video ad creatives.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| UNSET_VT | 0 | Equivalent to an unset value. |
+| VAST_1_0 | 1 | VAST 1.0 |
+| VAST_2_0 | 2 | VAST 2.0 |
+| VAST_3_0 | 3 | VAST 3.0 |
+| VAST_1_0_WRAP | 4 | VAST 1.0 Wrapper |
+| VAST_2_0_WRAP | 5 | VAST 2.0 Wrapper |
+| VAST_3_0_WRAP | 6 | VAST 3.0 Wrapper |
+| VAST_4_0 | 7 | VAST 4.0 |
+| VAST_4_0_WRAP | 8 | VAST 4.0 Wrapper |
+| VAST_4_1 | 9 | VAST 4.1 |
+| VAST_4_1_WRAP | 10 | VAST 4.1 Wrapper |
+
+
+
+<a name="adcom.DOOHVenueType"/>
+
+### DOOHVenueType
+This enum presents the digital out-of-home venue types and is derived from the DPAA Programmatic 
+Standards.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| UNSET_DOOH_VT | 0 | Equivalent to an unset value. |
+| AIRBORNE | 1 | Airborne. |
+| AIRPORT_GENERAL | 2 | Airports - General. |
+| AIRPORT_BAG_CLAIM | 3 | Airports - Baggage Claim. |
+| AIRPORT_TERMINAL | 4 | Airports - Terminal |
+| AIRPORT_LOUNGE | 5 | Airports - Lounges. |
+| ATM | 6 | ATMs. |
+| BACKLIGHT | 7 | Backlights. |
+| BAR | 8 | Bars. |
+| BENCH | 9 | Benches. |
+| BIKE_RACK | 10 | Bike rack. |
+| BULLETIN | 11 | Bulletins. |
+| BUS | 12 | Buses. |
+| CAFE | 13 | Cafes. |
+| CASUAL_DINING | 14 | Casual Dining Restaurants. |
+| CHILD_CARE | 15 | Child Care. |
+| CINEMA | 16 | Cinema. |
+| CITY_INFO_PANEL | 17 | City Information Panels. |
+| CONVENIENCE_STORE | 18 | Convenience Stores. |
+| DED_WILD_POSTING | 19 | Dedicated Wild Posting. |
+| DOC_OFFICE_GEN | 20 | Doctors Offices - General. |
+| DOC_OFFICE_OB | 21 | Doctors Offices - Obstetrics. |
+| DOC_OFFICE_PEDS | 22 | Doctors Offices - Pediatrics. |
+| FAMILY_ENT | 23 | Family entertainment. |
+| FERRY | 24 | Ferries. |
+| FINANCIAL_SERVICE | 25 | Financial Services. |
+| GAS_STATION | 26 | Gas Stations. |
+| GOLF_COURSE | 27 | Golf Courses. |
+| GYM | 28 | Gyms. |
+| HOSPITAL | 29 | Hospitals. |
+| HOTEL | 30 | Hotels. |
+| JR_POSTER | 31 | Junior Posters. |
+| KIOSK | 32 | Kiosks. |
+| MALL_GENERAL | 33 | Malls - General. |
+| MALL_FOOD_COURT | 34 | Malls - Food Courts. |
+| MARINE | 35 | Marine. |
+| MOBILE_BILLBOARD | 36 | Mobile Billboards. |
+| MOVIE_THEATER_LOB | 37 | Movie Theater Lobbies. |
+| NEWSSTAND | 38 | Newsstands. |
+| OFFICE_BUILDING | 39 | Office Buildings. |
+| PHONE_KIOSK | 40 | Phone Kiosks. |
+| POSTER | 41 | Posters. |
+| QSR | 42 | QSR. |
+| RAIL | 43 | Rail. |
+| RECEPTACLE | 44 | Receptacles. |
+| RESORT | 45 | Resorts / Leisure. |
+| RETAIL | 46 | Retail. |
+| SALON | 47 | Salons. |
+| SHELTER | 48 | Shelters. |
+| SPORTS_ARENA | 49 | Sports Arenas. |
+| SUBWAY | 50 | Subway. |
+| TAXI_WRAP_VEHICLE | 51 | Taxis / Wrapped vehicles. |
+| TRUCKSIDE | 52 | Truckside. |
+| UNIVERSITY | 53 | Universities. |
+| URBAN_PANEL | 54 | Urban Panels. |
+| VET_OFFICE | 55 | Veterinarian Offices. |
+| WALL_SPECTACULAR | 56 | Walls / Spectaculars. |
+| OTHER_X | 57 | Other. |
+
+
+
+<a name="adcom.DeliveryMethod"/>
+
+### DeliveryMethod
+The following enum defines the various options for the delivery of video or audio content.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| UNSET_DEL_METH | 0 | Equivalent to an unset value. |
+| STREAMING | 1 | Streaming video or audio. |
+| PROGRESSIVE | 2 | Progressive video or audio. |
+| DOWNLOAD | 3 | Downloadable video or audio. |
+
+
+
+<a name="adcom.DeviceType"/>
+
+### DeviceType
+The following enum defines the types of devies. This enum has values derived from the TAG
+Inventory Quality Guidelines (IQG).
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| UNSET_DEV_TYPE | 0 | Equivalent to an unset value. |
+| MOBILE_TABLET | 1 | Mobile/Tablet - General. |
+| PC | 2 | Personal Computer. |
+| CONNECTED_TV | 3 | Connected TV. |
+| PHONE | 4 | Smart Phone. |
+| TABLET | 5 | Tablet. |
+| CONNECTED_DEV | 6 | Connected Device. |
+| SET_TOP_BOX | 7 | Set Top Box. |
+
+
+
+<a name="adcom.DisplayContextType"/>
+
+### DisplayContextType
+The following enum defines the types of context in which a native ad may appear (i.e., the type 
+of content surrounding the ad on the page). This is intended to denote primary content although 
+other content may also appear on the page. Note that there are two levels of detail grouped by 
+10s (i.e., 12 is a refined case of 100).
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| UNSET_DISP_CT | 0 | Equivalent to an unset value. |
+| CONTENT_CENTRIC | 10 | Content-centric context (e.g., newsfeed, article, image gallery, video gallery, etc.). |
+| ARTICLE | 11 | Primarily article content, which could include images, etc. as part of the article. |
+| VIDEO_X | 12 | Primarily video content. |
+| AUDIO | 13 | Primarily audio content. |
+| IMAGE | 14 | Primarily image content. |
+| USER_GENERATED | 15 | User generated content (e.g., forums, comments, etc). |
+| SOCIAL | 20 | Social-centric context (e.g., social network feed, email, chat, etc). |
+| EMAIL | 21 | Primarily email content. |
+| CHAT | 22 | Primarily chat/IM content. |
+| PRODUCT | 30 | Product context (e.g., product listings, details, recommendations, reviews, etc.). |
+| APP_STORE | 31 | App store/marketplace. |
+| PRODUCT_REVIEWS | 32 | Product reviews site primarily, which may sell product secondarily. |
+
+
+
+<a name="adcom.DisplayPlacementType"/>
+
+### DisplayPlacementType
+The following enum defines the general types of display placements; the locations where a 
+native ad may be shown in relationship to the surrounding content.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| UNSET_DISP_PT | 0 | Equivalent to an unset value. |
+| FEED_CONTENT | 1 | In the feed of content (e.g., as an item inside the organic feed, grid, |
+| ATOMIC_CONTENT | 2 | listing carousel, etc.).
+
+In the atomic unit of the content (e.g., in the article page or single image page). |
+| OUTSIDE_CONTENT | 3 | Outside the core content (.e.g, in the ads section on the right rail, as a banner |
+| RECOMMENDATION | 4 | style placement near the content, etc.).
+
+Recommendation widget; most commonly presented below article content. |
+
+
+
+<a name="adcom.EventTrackingMethod"/>
+
+### EventTrackingMethod
+This enum lists the available methods of tracking of ad events. Vendor specific codes may
+include custom measurement companies (e.g., Moat, Doubleverify, IAS, etc.).
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| UNSET_EVENT_TM | 0 | Equivalent to an unset value. |
+| IMAGE_PIXEL | 1 | Image-Pixel: URL provided will be inserted as a 1x1 pixel at time of the event. |
+| JAVASCRIPT | 2 | JavaScript : URL provided will be inserted as a JavaScript tag at time of the event. |
+
+
+
+<a name="adcom.EventType"/>
+
+### EventType
+The following enum defines the types of ad events available for tracking. These types refer to 
+the actual event, timing, etc.; not the method of firing. Scripts that are performing 
+measurement should be deployed at impression time.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| UNSET_EVENT_T | 0 | Equivalent to an unset value. |
+| IMPRESSION | 1 | impression: Initial creative rendering. |
+| VIEWABLE_MRC50 | 2 | viewable-mrc50: Visible impression using MRC definition of 50% in view for 1 second. |
+| VIEWABLE_MRC100 | 3 | viewable-mrc100: 100% in view for 1 second (i.e., the GroupM standard). |
+| VIEWABLE_VID50 | 4 | viewable-video50: Visible impression for video using MRC definition of |
+
+
+
+<a name="adcom.ExpandableDirection"/>
+
+### ExpandableDirection
+The following enum defines the directions in which an expandable ad may expand, given the 
+positioning of the ad unit on the page and constraints imposed by the content.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| UNSET_EXPAND_D | 0 | Equivalent to an unset value. |
+| LEFT | 1 |  |
+| RIGHT | 2 |  |
+| UP | 3 |  |
+| DOWN | 4 |  |
+| FULLSCREEN | 5 |  |
+
+
+
+<a name="adcom.LinearityMode"/>
+
+### LinearityMode
+The following enum indicates the options for media linearity, typically for video.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| UNSET_LIN_M | 0 | Equivalent to an unset value. |
+| LINEAR | 1 | Linear (i.e., In-Stream such as Pre-Roll, Mid-Roll, Post-Roll) |
+| NONLINEAR | 2 | Non-Linear (i.e., Overlay) |
+
+
+
+<a name="adcom.LocationService"/>
+
+### LocationService
+The following enum defines the services and/or vendors used for resolving IP addresses to
+geolocations.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| UNSET_LOC_S | 0 | Equivalent to an unset value. |
+| IP2LOCATION | 1 | ip2location. |
+| NEUSTAR | 2 | Neustar (Quova). |
+| MAXMIND | 3 | MaxMind. |
+| NETAQUITY | 4 | NetAquity (Digital Element). |
+
+
+
+<a name="adcom.LocationType"/>
+
+### LocationType
+The following enum defines the options to indicate how the geographic information was determined.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| UNSET_LOC_T | 0 | Equivalent to an unset value. |
+| GPS_LOC_SERVICE | 1 | GPS/Location Services. |
+| IP_ADDRESS | 2 | IP Address. |
+| USER_PROVIDED | 3 | User Provided (e.g., registration data). |
+
+
+
+<a name="adcom.MediaRating"/>
+
+### MediaRating
+The following enum defines the media ratings used in describing content based on the TAG 
+Inventory Quality Guidelines (IQG) v2.1 categorization. Refer to 
+www.iab.com/guidelines/digital-video-suite for more information.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| UNSET_MEDIA_R | 0 | Equivalent to an unset value. |
+| ALL_AUDIENCES | 1 | All Audiences. |
+| OVER_12 | 2 | Everyone Over Age 12. |
+| MATURE | 3 | Mature Audiences. |
+
+
+
+<a name="adcom.NativeDataAssetType"/>
+
+### NativeDataAssetType
+The following enum defines the common data asset types. This list is non-exhaustive and is 
+intended to be expanded over time. Size recommendations are noted as &#34;maximum length of at 
+least&#34;, which means the publisher or supply platform should support a maximum length of at least
+this value and the buying platform knows that a string of this size should be accepted.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| UNSET_NATIVE_DAT | 0 | Equivalent to an unset value. |
+| SPONSORED | 1 | sponsored: &#34;Sponsored By&#34; message which should contain the brand name of the sponsor. Recommended maximum length of at least 25 characters. |
+| DESCRIPTIVE | 2 | desc: Descriptive text associated with the product or service being advertised. Long text lengths may be truncated or ellipsed when rendered. Recommended maximum length of at least 140 characters. |
+| RATING | 3 | rating: Numeric rating of the product (e.g., an app&#39;s rating). Recommended integer range of 0-5. |
+| LIKES | 4 | likes: Number of social ratings or &#34;likes&#34; of the product. |
+| DOWNLOADS | 5 | downloads: Number downloads and/or installs of the product. |
+| PRICE | 6 | price: Price of the product, app, or in-app purchase. Value should include currency symbol in localized format (e.g., &#34;$10&#34;). |
+| SALEPRICE | 7 | saleprice: Sale price that can be used together with &#34;price&#34; to indicate a comparative discounted price. Value should include currency symbol in localized format (e.g. &#34;$8.50&#34;). |
+| PHONE_X | 8 | phone: A formatted phone number. |
+| ADDRESS | 9 | address: A formatted address. |
+| DESC2 | 10 | desc2: Additional descriptive text associated with the product. |
+| DISPLAY_URL | 11 | displayurl: Display URL for the ad. To be used when sponsoring entity does not own the content (e.g., &#34;Sponsored by Brand on Site&#34;, where Site is specified in this data asset). |
+| CTA_TEXT | 12 | ctatext: Description of the call to action (CTA) button for the destination URL. Recommended maximum length of at least 15 characters. |
+
+
+
+<a name="adcom.NativeImageAssetType"/>
+
+### NativeImageAssetType
+The following enum defines the set of common image asset types. This list is non-exhaustive and 
+is intended to be expanded over time. Size recommendations are noted as &#34;maximum height or width
+of at least&#34;, which means the publisher or supply platform should support a maximum height or 
+width of at least this value and the buying platform knows that an image of this size should be 
+accepted.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| UNSET_NATIVE_IAT | 0 | Equivalent to an unset value. |
+| ICON | 1 | Icon: Icon image. Maximum height at least 50 device independent pixels (DIPS); aspect ratio 1:1. |
+| MAIN | 3 | Main: Large image preview for the ad. At least one of 2 size variants required: Small: Maximum height at least 627 DIPS; maximum width at least 627, 836, or 1198 DIPS (i.e., aspect ratios of 1:1, 4:3, or 1.91:1, respectively). Large: Maximum height at least 200 DIPS; maximum width at least 200, 267, or 382 DIPS (i.e., aspect ratios of 1:1, 4:3, or 1.91:1, respectively). |
+
+
+
+<a name="adcom.OperatingSystem"/>
+
+### OperatingSystem
+The following enum defines the options for device operating system.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OTHER_Y | 0 | Other Not Listed |
+| NINTENDO_3DS | 1 | Nintendo 3DS System Software |
+| ANDROID | 2 | Android |
+| APPLE_TV | 3 | Apple TV Software |
+| ASHA | 4 | Asha |
+| BADA | 5 | Bada |
+| BLACKBERRY | 6 | BlackBerry |
+| BREW | 7 | BREW |
+| CHROMEOS | 8 | ChromeOS |
+| DARWIN | 9 | Darwin |
+| FIREOS | 10 | FireOS |
+| FIREFOXOS | 11 | FirefoxOS |
+| HELENOS | 12 | HelenOS |
+| IOS | 13 | iOS |
+| LINUX | 14 | Linux |
+| MACOS | 15 | MacOS |
+| MEEGO | 16 | MeeGo |
+| MORPHOS | 17 | MorphOS |
+| NETBSD | 18 | NetBSD |
+| NUCLEUSPLUS | 19 | NucleusPLUS |
+| PSVITA | 20 | PS Vita System Software |
+| PS3 | 21 | PS3 System Software |
+| PS4 | 22 | PS4 System Software |
+| PSP | 23 | PSP System Software |
+| SYMBIAN | 24 | Symbian |
+| TIZEN | 25 | Tizen |
+| WATCHOS | 26 | WatchOS |
+| WEBOS | 27 | WebOS |
+| WINDOWS | 28 | Windows |
+
+
+
+<a name="adcom.PlacementPosition"/>
+
+### PlacementPosition
+The following enum defines the placement positions as a relative measure of visibility or 
+prominence. This enum has values derived from the TAG Inventory Quality Guidelines (IQG).
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| UNSET_PLACE_P | 0 | Equivalent to an unset value. |
+| ATF | 1 | Above the Fold. |
+| LOCKED | 2 | Locked (i.e., fixed position). |
+| BTF | 3 | Below the Fold. |
+| HEADER | 4 | Header. |
+| FOOTER | 5 | Footer. |
+| SIDEBAR | 6 | Sidebar. |
+| FULLSCREEN_X | 7 | Full screen. |
+
+
+
+<a name="adcom.PlaybackCessationMode"/>
+
+### PlaybackCessationMode
+The following enum defines the various modes for when media playback terminates.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| UNSET_PLAYBACK_CM | 0 | Equivalent to an unset value. |
+| ON_COMPLETION | 1 | On Video Completion or when Terminated by User. |
+| ON_VIEWPORT_EXIT | 2 | On Leaving Viewport or when Terminated by User. |
+| ON_EXIT_FLOAT | 3 | On Leaving Viewport Continues as a Floating/Slider Unit until Video |
+
+
+
+<a name="adcom.PlaybackMethod"/>
+
+### PlaybackMethod
+The following table lists the various media playback methods.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| UNSET_PLAYBACK_M | 0 | Equivalent to an unset value. |
+| PAGE_LOAD_SOUND_ON | 1 | Initiates on Page Load with Sound On. |
+| PAGE_LOAD_SOUND_OFF | 2 | Initiates on Page Load with Sound Off by Default. |
+| CLICK_SOUND_ON | 3 | Initiates on Click with Sound On. |
+| MOUSEOVER_SOUND_ON | 4 | Initiates on Mouse-Over with Sound On. |
+| VIEWPORT_SOUND_ON | 5 | Initiates on Entering Viewport with Sound On. |
+| VIEWPORT_SOUND_OFF | 6 | Initiates on Entering Viewport with Sound Off. |
+
+
+
+<a name="adcom.ProductionQuality"/>
+
+### ProductionQuality
+The following enum defines the options for content quality. These values are defined by the IAB;
+refer to www.iab.com/wp-content/uploads/2015/03/long-form-video-final.pdf for more information.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| UNSET_PROD_Q | 0 | Equivalent to an unset value. |
+| PROFESSIONAL | 1 | Professionally Produced. |
+| PROSUMER | 2 | Prosumer. |
+| UGC | 3 | User Generated Content. |
+
+
+
+<a name="adcom.SizeUnit"/>
+
+### SizeUnit
+The following enum lists the units of height and width used by creatives, assets, and placement
+specifications where noted.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| UNSET_SIZE_U | 0 | Equivalent to an unset value. |
+| DIPS | 1 | Device Independent Pixels. |
+| INCH | 2 | Inches. |
+| CENTIMETER | 3 | Centimeters. |
+
+
+
+<a name="adcom.VideoPlacementSubtype"/>
+
+### VideoPlacementSubtype
+The following enum lists the various types of video placements derived largely from the IAB 
+Digital Video Guidelines.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| UNSET_VIDEO_PS | 0 | Equivalent to an unset value. |
+| IN_STREAM | 1 | In-Stream: Played before, during or after the streaming video content that the consumer has requested (e.g., Pre-roll, Mid-roll, Post-roll). |
+| IN_BANNER | 2 | In-Banner: Exists within a web banner that leverages the banner space to deliver a video experience as opposed to another static or rich media format. The format relies on the existence of display ad inventory on the page for its delivery. |
+| IN_ARTICLE | 3 | In-Article: Loads and plays dynamically between paragraphs of editorial content; existing as a standalone branded message. |
+| IN_FEED | 4 | In-Feed: Found in content, social, or product feeds. |
+| INTERSTITIAL | 5 | Interstitial/Slider/Floating: Covers the entire or a portion of screen area, but is always on screen while displayed (i.e. cannot be scrolled out of view). |
+
+
+
+<a name="adcom.VolumeNormalizationMode"/>
+
+### VolumeNormalizationMode
+The following enum defines the types of volume normalization modes, typically for audio.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| NO_NORMALIZATION | 0 |  |
+| VOL_AVG_NORMALIZATION | 1 | Ad Volume Average Normalized to Content. |
+| VOL_PEAK_NORMALIZATION | 2 | Ad Volume Peak Normalized to Content. |
+| LOUDNESS_NORMALIZATION | 3 | Ad Loudness Normalized to Content. |
+| VOL_CUST_NORMALIZATION | 4 | Custom Volume Normalization. |
+
 
  
 
