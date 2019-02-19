@@ -8,7 +8,7 @@ syntax = "proto3";
 
 import "google/protobuf/any.proto";
 
-package placement;
+package com.iab.adcom.placement;
 
 /**
  * This object represents the properties of a placement and the characteristics of ads permitted to

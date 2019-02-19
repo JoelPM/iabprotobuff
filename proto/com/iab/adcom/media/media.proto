@@ -8,7 +8,7 @@ syntax = "proto3";
 
 import "google/protobuf/any.proto";
 
-package media;
+package com.iab.adcom.media;
 
 /**
  * This object is the root of a structure that defines in instance of advertising media. It includes

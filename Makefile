@@ -7,4 +7,4 @@ docs:
   pseudomuto/protoc-gen-doc --doc_opt=markdown,docs.md
 
 watch:
-	fswatch ./proto/*.proto | xargs -n1 make docs
+	fswatch  -r ./proto/ | xargs -n1 make docs

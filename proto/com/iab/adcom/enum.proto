@@ -3,7 +3,7 @@
  */
 syntax = "proto3";
 
-package adcom;
+package com.iabm.adcom;
 
 /**
  * The following enum is a list of API frameworks either supported by a placement or required

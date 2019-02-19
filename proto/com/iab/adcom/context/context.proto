@@ -9,7 +9,7 @@ syntax = "proto3";
 
 import "google/protobuf/any.proto";
 
-package adcom.context;
+package com.iab.adcom.context;
 
 /**
  * A distribution channel is an abstraction of the various types of entities or channels through 
